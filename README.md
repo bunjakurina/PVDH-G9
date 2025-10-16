@@ -39,8 +39,24 @@ cd EV-Visualization
 git clone https://github.com/bunjakurina/PVDH-G9.git
 cd EV-Visualization
 
+# Create and Activate a Virtual Environment
+python -m venv venv
+venv\Scripts\activate
 
+# Install Dependencies
+pip install -r requirements.txt
 
+#Launch Jupyter Notebook
+Option A — From VS Code
+
+Install the Jupyter extension.
+
+Open the .ipynb file.
+
+Make sure the interpreter is set to your virtual environment (venv).
+
+Option B — From Terminal
+jupyter notebook
 ```
 
 
