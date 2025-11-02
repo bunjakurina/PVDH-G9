@@ -15,7 +15,7 @@
 ---
 
 ### Project Overview  
-
+Performance and efficiency analysis of Electric Vehicles based on technical characteristics.
 This project focuses on the **analysis and visualization of electric vehicle specifications** to identify structured specifications of electric vehicles (EVs), including brand, model, battery, charging, range, performance, and size metrics
 
 ---
