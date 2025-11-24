@@ -28,8 +28,6 @@ This project focuses on the **analysis and visualization of electric vehicle spe
 
 ### Project Setup  
 
-
-
 ```bash
 # Create project directory
 mkdir EV-Visualization
@@ -278,6 +276,10 @@ All features scaled between 0–1.
  Aggregations reveal relationships between **drivetrain efficiency**, **battery capacity**, and **car body type**  
  Final dataset exported as `electric_vehicles_preproccesed.csv`
 
+## Second Phase
+Outlier detection. <br>
+Avoiding false positives <br>
+Data mining: summary statistics, multivariate. <br>
 
 
  
