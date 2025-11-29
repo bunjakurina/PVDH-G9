@@ -1,0 +1,6 @@
+brand,model,top_speed_kmh,battery_capacity_kWh,battery_type,number_of_cells,torque_nm,efficiency_wh_per_km,range_km,acceleration_0_100_s,fast_charging_power_kw_dc,fast_charge_port,towing_capacity_kg,cargo_volume_l,seats,drivetrain,segment,length_mm,width_mm,height_mm,car_body_type,source_url
+Dacia,Spring Electric 45,125,25.0,Lithium-ion,72.0,125.0,109,165,19.1,29.0,CCS,0.0,308,4,FWD,A - Mini,3700,1622,1516,Hatchback,https://ev-database.org/car/2126/Dacia-Spring-Electric-45
+Maserati,GranCabrio Folgore,290,83.0,Lithium-ion,,1350.0,198,395,2.8,190.0,CCS,,151,4,AWD,F - Luxury,4966,1957,1365,Cabriolet,https://ev-database.org/car/2187/Maserati-GranCabrio-Folgore
+Maserati,GranTurismo Folgore,325,83.0,Lithium-ion,,1350.0,182,420,2.7,217.0,CCS,,270,4,AWD,F - Luxury,4959,1957,1353,Coupe,https://ev-database.org/car/1803/Maserati-GranTurismo-Folgore
+Porsche,Taycan Turbo GT,290,97.0,Lithium-ion,396.0,1340.0,184,475,2.3,281.0,CCS,0.0,326,5,AWD,F - Luxury,4968,1966,1378,Sedan,https://ev-database.org/car/2144/Porsche-Taycan-Turbo-GT
+Porsche,Taycan Turbo GT Weissach,305,97.0,Lithium-ion,396.0,1340.0,180,475,2.2,281.0,CCS,0.0,367,2,AWD,F - Luxury,4968,1966,1378,Sedan,https://ev-database.org/car/2145/Porsche-Taycan-Turbo-GT-Weissach
