@@ -277,9 +277,170 @@ All features scaled between 0–1.
  Final dataset exported as `electric_vehicles_preproccesed.csv`
 
 ## Second Phase
-Outlier detection. <br>
-Avoiding false positives <br>
-Data mining: summary statistics, multivariate. <br>
+
+## Outlier detection
+Numri total i outliers: 25
+
+----- OUTLIERS (Z-score dhe IQR) ----
+             brand                         model  top_speed_kmh  \
+89         Citroen        e-SpaceTourer M 50 kWh            130   
+90         Citroen        e-SpaceTourer M 75 kWh            130   
+91         Citroen       e-SpaceTourer XL 50 kWh            130   
+92         Citroen       e-SpaceTourer XL 75 kWh            130   
+98           Dacia            Spring Electric 45            125   
+99           Dacia            Spring Electric 65            125   
+194          Lucid             Air Grand Touring            270   
+210       Maserati            GranCabrio Folgore            290   
+211       Maserati           GranTurismo Folgore            325   
+248  Mercedes-Benz                  EQT 200 Long            132   
+283         Nissan      Townstar EV Passenger L2            130   
+295           Opel       Zafira-e Life L2 50 kWh            130   
+296           Opel       Zafira-e Life L2 75 kWh            130   
+297           Opel       Zafira-e Life L3 50 kWh            130   
+298           Opel       Zafira-e Life L3 75 kWh            130   
+314        Peugeot         e-Traveller L2 50 kWh            130   
+315        Peugeot         e-Traveller L2 75 kWh            130   
+316        Peugeot         e-Traveller L3 50 kWh            130   
+317        Peugeot         e-Traveller L3 75 kWh            130   
+347        Porsche               Taycan Turbo GT            290   
+348        Porsche      Taycan Turbo GT Weissach            305   
+359        Renault  Kangoo Grand E-Tech Electric            130   
+402          Tesla                 Model S Plaid            282   
+408         Toyota         PROACE Verso L 75 kWh            130   
+410         Toyota         PROACE Verso M 75 kWh            130   
+
+     battery_capacity_kWh battery_type  number_of_cells  torque_nm  \
+89                   46.3  Lithium-ion            216.0      220.0   
+90                   68.0  Lithium-ion            324.0      220.0   
+91                   46.3  Lithium-ion            216.0      220.0   
+92                   68.0  Lithium-ion            324.0      220.0   
+98                   25.0  Lithium-ion             72.0      125.0   
+99                   25.0  Lithium-ion             72.0      113.0   
+194                 112.0  Lithium-ion           6600.0     1200.0   
+210                  83.0  Lithium-ion              NaN     1350.0   
+211                  83.0  Lithium-ion              NaN     1350.0   
+248                  45.0  Lithium-ion              NaN      245.0   
+283                  45.0  Lithium-ion              NaN      245.0   
+295                  46.3  Lithium-ion            216.0      270.0   
+296                  68.0  Lithium-ion            324.0      270.0   
+297                  46.3  Lithium-ion            216.0      270.0   
+298                  68.0  Lithium-ion            324.0      260.0   
+314                  46.3  Lithium-ion            216.0      270.0   
+315                  68.0  Lithium-ion            324.0      270.0   
+316                  46.3  Lithium-ion            216.0      270.0   
+317                  68.0  Lithium-ion            324.0      270.0   
+347                  97.0  Lithium-ion            396.0     1340.0   
+348                  97.0  Lithium-ion            396.0     1340.0   
+359                  45.0  Lithium-ion              NaN      245.0   
+402                  95.0  Lithium-ion           7920.0        NaN   
+408                  68.0  Lithium-ion            324.0      260.0   
+410                  68.0  Lithium-ion            324.0      260.0   
+
+     efficiency_wh_per_km  range_km  acceleration_0_100_s  ...  \
+89                    217       180                  13.3  ...   
+90                    202       260                  14.2  ...   
+91                    219       180                  13.3  ...   
+92                    204       260                  14.2  ...   
+98                    109       165                  19.1  ...   
+99                    114       160                  13.7  ...   
+194                   143       665                   3.0  ...   
+210                   198       395                   2.8  ...   
+211                   182       420                   2.7  ...   
+248                   177       220                  13.3  ...   
+283                   173       220                  13.3  ...   
+295                   217       180                  13.3  ...   
+296                   202       260                  14.2  ...   
+297                   219       180                  13.3  ...   
+298                   204       260                  14.2  ...   
+314                   217       180                  13.3  ...   
+315                   202       260                  14.2  ...   
+316                   219       180                  13.3  ...   
+317                   204       260                  14.2  ...   
+347                   184       475                   2.3  ...   
+348                   180       475                   2.2  ...   
+359                   170       220                  13.3  ...   
+402                   158       560                   2.3  ...   
+408                   204       260                  13.3  ...   
+410                   202       260                  13.3  ...   
+
+     towing_capacity_kg cargo_volume_l  seats drivetrain            segment  \
+89               1000.0            603      9        FWD  N - Passenger Van   
+90               1000.0            603      9        FWD  N - Passenger Van   
+91               1000.0            989      9        FWD  N - Passenger Van   
+92               1000.0            989      9        FWD  N - Passenger Van   
+98                  0.0            308      4        FWD           A - Mini   
+99                  0.0            308      4        FWD           A - Mini   
+194                 0.0            456      5        AWD         F - Luxury   
+210                 NaN            151      4        AWD         F - Luxury   
+211                 NaN            270      4        AWD         F - Luxury   
+248              1500.0            828      7        FWD  N - Passenger Van   
+283              1500.0            819      7        FWD  N - Passenger Van   
+295              1000.0            603      9        FWD  N - Passenger Van   
+296              1000.0            603      9        FWD  N - Passenger Van   
+297              1000.0            989      9        FWD  N - Passenger Van   
+298              1000.0            989      9        FWD  N - Passenger Van   
+314              1000.0            603      9        FWD  N - Passenger Van   
+315              1000.0            603      9        FWD  N - Passenger Van   
+316              1000.0            989      9        FWD  N - Passenger Van   
+317              1000.0            989      9        FWD  N - Passenger Van   
+347                 0.0            326      5        AWD         F - Luxury   
+348                 0.0            367      2        AWD         F - Luxury   
+359              1500.0            500      7        FWD  N - Passenger Van   
+402              1600.0            709      5        AWD         F - Luxury   
+408              1000.0            989      9        FWD  N - Passenger Van   
+410              1000.0            603      9        FWD  N - Passenger Van   
+
+    length_mm width_mm  height_mm        car_body_type  \
+89       4983     1920       1890  Small Passenger Van   
+90       4983     1920       1890  Small Passenger Van   
+91       5333     1920       1890  Small Passenger Van   
+92       5333     1920       1890  Small Passenger Van   
+98       3700     1622       1516            Hatchback   
+99       3700     1622       1516            Hatchback   
+194      4975     1939       1410                Sedan   
+210      4966     1957       1365            Cabriolet   
+211      4959     1957       1353                Coupe   
+248      4922     1859       1811  Small Passenger Van   
+283      4911     1860       1815  Small Passenger Van   
+295      4983     1920       1890  Small Passenger Van   
+296      4983     1920       1890  Small Passenger Van   
+297      5333     1920       1890  Small Passenger Van   
+298      5333     1920       1890  Small Passenger Van   
+314      4983     1920       1890  Small Passenger Van   
+315      4983     1920       1890  Small Passenger Van   
+316      5333     1920       1890  Small Passenger Van   
+317      5333     1920       1890  Small Passenger Van   
+347      4968     1966       1378                Sedan   
+348      4968     1966       1378                Sedan   
+359      4911     1860       1815  Small Passenger Van   
+402      5021     1987       1431       Liftback Sedan   
+408      5333     1920       1890  Small Passenger Van   
+410      4983     1920       1890  Small Passenger Van   
+
+## Avoiding false positives <br>
+--- Mënjanimi i zbulimeve jo të sakta ---
+Totali i rreshtave fillestarë : 478
+Rreshta të identifikuar si Outliers (Z-score ∪ IQR): 25
+Rreshta të mbetur (Clean Data): 453
+Përqindja e të dhënave të humbura: 5.23%
+
+Outliers të ruajtur në dataset/z_iqr_removed_outliers.csv
+
+--- PARA HEQJES ---
+      top_speed_kmh  battery_capacity_kWh    range_km  acceleration_0_100_s
+mean     185.487448             74.043724  393.179916              6.882636
+std       34.252773             20.331058  103.287335              2.730696
+min      125.000000             21.300000  135.000000              2.200000
+max      325.000000            118.000000  685.000000             19.100000
+
+--- PAS HEQJES ---
+      top_speed_kmh  battery_capacity_kWh    range_km  acceleration_0_100_s
+mean     186.399558             74.655850  399.128035              6.645254
+std       30.763682             20.047133   98.055549              2.327283
+min      130.000000             21.300000  135.000000              2.400000
+max      262.000000            118.000000  685.000000             12.900000
+
+## Data mining: summary statistics, multivariate. <br>
 
 
  
