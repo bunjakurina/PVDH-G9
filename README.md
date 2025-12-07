@@ -418,29 +418,130 @@ Numri total i outliers: 25
 410      4983     1920       1890  Small Passenger Van   
 
 ## Avoiding false positives <br>
---- Mënjanimi i zbulimeve jo të sakta ---
-Totali i rreshtave fillestarë : 478
-Rreshta të identifikuar si Outliers (Z-score ∪ IQR): 25
-Rreshta të mbetur (Clean Data): 453
-Përqindja e të dhënave të humbura: 5.23%
-
-Outliers të ruajtur në dataset/z_iqr_removed_outliers.csv
-
---- PARA HEQJES ---
-      top_speed_kmh  battery_capacity_kWh    range_km  acceleration_0_100_s
-mean     185.487448             74.043724  393.179916              6.882636
-std       34.252773             20.331058  103.287335              2.730696
-min      125.000000             21.300000  135.000000              2.200000
-max      325.000000            118.000000  685.000000             19.100000
-
---- PAS HEQJES ---
-      top_speed_kmh  battery_capacity_kWh    range_km  acceleration_0_100_s
-mean     186.399558             74.655850  399.128035              6.645254
-std       30.763682             20.047133   98.055549              2.327283
-min      130.000000             21.300000  135.000000              2.400000
-max      262.000000            118.000000  685.000000             12.900000
-
+--- Mënjanimi i zbulimeve jo të sakta ---<br>
+Totali i rreshtave fillestarë : 478<br>
+Rreshta të identifikuar si Outliers (Z-score ∪ IQR): 25<br>
+Rreshta të mbetur (Clean Data): 453<br>
+Përqindja e të dhënave të humbura: 5.23%<br>
+<br>
+Outliers të ruajtur në dataset/z_iqr_removed_outliers.csv<br>
+<br>
+--- PARA HEQJES ---<br>
+      top_speed_kmh  battery_capacity_kWh    range_km  acceleration_0_100_s<br>
+mean     185.487448             74.043724  393.179916              6.882636<br>
+std       34.252773             20.331058  103.287335              2.730696<br>
+min      125.000000             21.300000  135.000000              2.200000<br>
+max      325.000000            118.000000  685.000000             19.100000<br>
+<br>
+--- PAS HEQJES ---<br>
+      top_speed_kmh  battery_capacity_kWh    range_km  acceleration_0_100_s<br>
+mean     186.399558             74.655850  399.128035              6.645254<br>
+std       30.763682             20.047133   98.055549              2.327283<br>
+min      130.000000             21.300000  135.000000              2.400000<br>
+max      262.000000            118.000000  685.000000             12.900000 <br>
+=== Isolation Forest: Detektimi i anomalive ===<br>
+![Isolation](image.png)
+Numri i anomalive (Isolation Forest): 22<br>
 ## Data mining: summary statistics, multivariate. <br>
+=== Informata bazë ===
+RangeIndex: 478 entries, 0 to 477
+Data columns (total 29 columns):
+ #   Column                      Non-Null Count  Dtype   
+---  ------                      --------------  -----   
+ 0   brand                       478 non-null    object  
+ 1   model                       477 non-null    object  
+ 2   top_speed_kmh               478 non-null    int64   
+ 3   battery_capacity_kWh        478 non-null    float64 
+ 4   battery_type                478 non-null    object  
+ 5   torque_nm                   471 non-null    float64 
+ 6   efficiency_wh_per_km        478 non-null    int64   
+ 7   range_km                    478 non-null    int64   
+ 8   acceleration_0_100_s        478 non-null    float64 
+ 9   fast_charging_power_kw_dc   477 non-null    float64 
+ 10  fast_charge_port            477 non-null    object  
+ 11  towing_capacity_kg          452 non-null    float64 
+ 12  cargo_volume_l              477 non-null    object  
+ 13  seats                       478 non-null    int64   
+ 14  drivetrain                  478 non-null    object  
+ 15  segment                     478 non-null    object  
+ 16  car_body_type               478 non-null    object  
+ 17  estimated_range             478 non-null    float64 
+...
+memory usage: 105.4+ KB
+None
 
+=== Statistika numerike përmbledhëse ===
+Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings...
+top_speed_kmh	battery_capacity_kWh	torque_nm	efficiency_wh_per_km	range_km	acceleration_0_100_s	fast_charging_power_kw_dc	towing_capacity_kg	seats	estimated_range	range_diff_pct	range_per_kWh	speed_efficiency_ratio	performance_index	charge_rate_kw_per_kWh	eco_score	battery_capacity_binned	range_binned	battery_capacity_binarized	range_binarized
+count	478.000000	478.000000	471.000000	478.000000	478.000000	478.000000	477.000000	452.000000	478.000000	478.000000	478.000000	478.000000	478.000000	478.000000	477.000000	478.000000	478.000000	478.000000	478.0	478.0
+mean	185.487448	74.043724	498.012739	162.903766	393.179916	6.882636	125.008386	1052.261062	5.263598	458.987221	18.768247	5.380204	1.167394	33.567841	1.653048	3.074282	2.192469	1.866109	1.0	1.0
+std	34.252773	20.331058	241.461128	34.317532	103.287335	2.730696	58.205012	737.851774	1.003961	111.994832	9.728445	0.714469	0.230151	20.539917	0.481704	0.405482	0.992945	0.992034	0.0	0.0
+min	125.000000	21.300000	113.000000	109.000000	135.000000	2.200000	29.000000	0.000000	2.000000	172.972973	0.078678	3.103448	0.351351	6.544503	0.546875	1.796525	0.000000	0.000000	1.0	1.0
+25%	160.000000	60.000000	305.000000	143.000000	320.000000	4.800000	80.000000	500.000000	5.000000	389.610350	11.866723	4.944088	1.077476	19.753086	1.355932	2.846439	2.000000	1.000000	1.0	1.0
+50%	180.000000	76.150000	430.000000	155.000000	397.500000	6.600000	113.000000	1000.000000	5.000000	463.624313	18.939146	5.430472	1.181211	29.008883	1.562500	3.117786	2.000000	2.000000	1.0	1.0
+75%	201.000000	90.600000	679.000000	177.750000	470.000000	8.200000	150.000000	1600.000000	5.000000	536.222928	25.656337	5.905512	1.279549	41.968750	1.796247	3.356873	3.000000	3.000000	1.0	1.0
+max	325.000000	118.000000	1350.000000	370.000000	685.000000	19.100000	281.000000	2500.000000	9.000000	783.216783	45.900204	7.355372	1.888112	138.636364	3.380282	4.230300	4.000000	4.000000	1.0	1.0
+<Figure size 1400x1200 with 0 Axes>
+![Histogram](image-1.png)
+![Boxplot](image-2.png)
+=== Skewness (asimetria e shpërndarjes) ===
+top_speed_kmh                 0.645003
+battery_capacity_kWh         -0.106333
+torque_nm                     0.834466
+efficiency_wh_per_km          2.409480
+range_km                     -0.155623
+acceleration_0_100_s          0.880119
+fast_charging_power_kw_dc     1.042050
+towing_capacity_kg           -0.095611
+seats                         1.999372
+estimated_range              -0.255472
+range_diff_pct                0.081875
+range_per_kWh                -0.447060
+speed_efficiency_ratio       -0.458491
+performance_index             1.784634
+charge_rate_kw_per_kWh        1.035451
+eco_score                    -0.658332
+battery_capacity_binned      -0.148290
+range_binned                 -0.155894
+battery_capacity_binarized    0.000000
+range_binarized               0.000000
+dtype: float64
+C:\Users\ThinkPad\AppData\Local\Temp\ipykernel_18588\1115238447.py:29: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(x=skew_vals.index, y=skew_vals.values, palette="coolwarm")
+
+![Skewness](image-3.png)
+=== Kurtosis (peshat e shpërndarjes) ===
+top_speed_kmh                  0.529676
+battery_capacity_kWh          -0.618342
+torque_nm                      0.304018
+efficiency_wh_per_km          10.621747
+range_km                      -0.486618
+acceleration_0_100_s           0.745237
+fast_charging_power_kw_dc      0.600633
+towing_capacity_kg            -1.105855
+seats                          5.494194
+estimated_range               -0.172215
+range_diff_pct                -0.318373
+range_per_kWh                  0.067954
+speed_efficiency_ratio         1.726490
+performance_index              4.325028
+charge_rate_kw_per_kWh         0.901253
+eco_score                      0.622194
+battery_capacity_binned       -0.520723
+range_binned                  -0.667759
+battery_capacity_binarized     0.000000
+range_binarized                0.000000
+dtype: float64
+![Kurtosis](image-4.png)
+![Parplot](image-5.png)
+![Battery](image-6.png)
+![Efficiency](image-7.png)
+![Densiteti](image-8.png)
+![PCA](image-9.png)
+=== Varianca e shpjeguar nga PCA ===
+[0.47457442 0.23922062]
 
  
