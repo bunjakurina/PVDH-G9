@@ -545,3 +545,6 @@ dtype: float64
 [0.47457442 0.23922062]
 
  
+## Third Phase
+
+<img width="1366" height="4374" alt="pvdh" src="https://github.com/user-attachments/assets/09fa2140-4b71-43cb-b269-65ab91eb76ce" />
